@@ -20,11 +20,10 @@
  created 25 Nov 2012
  by Tom Igoe
  */
-#include <SPI.h>
 #include <WiFi.h>
 
-char ssid[] = "yourNetwork";      //  your network SSID (name)
-char pass[] = "secretPassword";   // your network password
+char ssid[] = "Bon bin oui Je suis la";      //  your network SSID (name)
+char pass[] = "jackie+lea";   // your network password
 int keyIndex = 0;                 // your network key Index number (needed only for WEP)
 
 int status = WL_IDLE_STATUS;
