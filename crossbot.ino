@@ -1,29 +1,13 @@
-/*
-  WiFi Web Server LED Blink
+#include <SPI.h>
+#include <WiFi101.h>
+#include <WiFiClient.h>
+#include <WiFiMDNSResponder.h>
+#include <WiFiServer.h>
+#include <WiFiSSLClient.h>
+#include <WiFiUdp.h>
 
- A simple web server that lets you blink an LED via the web.
- This sketch will print the IP address of your WiFi Shield (once connected)
- to the Serial monitor. From there, you can open that address in a web browser
- to turn on and off the LED on pin 9.
-
- If the IP address of your shield is yourAddress:
- http://yourAddress/H turns the LED on
- http://yourAddress/L turns it off
-
- This example is written for a network using WPA encryption. For
- WEP or WPA, change the Wifi.begin() call accordingly.
-
- Circuit:
- * WiFi shield attached
- * LED attached to pin 9
-
- created 25 Nov 2012
- by Tom Igoe
- */
-#include <WiFi.h>
-
-char ssid[] = "Bon bin oui Je suis la";      //  your network SSID (name)
-char pass[] = "jackie+lea";   // your network password
+char ssid[] = "SSID";      //  your network SSID (name)
+char pass[] = "PASSWORD";   // your network password
 int keyIndex = 0;                 // your network key Index number (needed only for WEP)
 
 int status = WL_IDLE_STATUS;
@@ -31,7 +15,7 @@ WiFiServer server(80);
 
 void setup() {
   Serial.begin(9600);      // initialize serial communication
-  pinMode(9, OUTPUT);      // set the LED pin mode
+  pinMode(6, OUTPUT);      // set the LED pin mode
 
   // check for the presence of the shield:
   if (WiFi.status() == WL_NO_SHIELD) {
@@ -97,10 +81,10 @@ void loop() {
 
         // Check to see if the client request was "GET /H" or "GET /L":
         if (currentLine.endsWith("GET /H")) {
-          digitalWrite(9, HIGH);               // GET /H turns the LED on
+          digitalWrite(6, HIGH);               // GET /H turns the LED on
         }
         if (currentLine.endsWith("GET /L")) {
-          digitalWrite(9, LOW);                // GET /L turns the LED off
+          digitalWrite(6, LOW);                // GET /L turns the LED off
         }
       }
     }
@@ -129,3 +113,4 @@ void printWifiStatus() {
   Serial.print("To see this page in action, open a browser to http://");
   Serial.println(ip);
 }
+
