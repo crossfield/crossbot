@@ -1,3 +1,10 @@
+#include <Dhcp.h>
+#include <Dns.h>
+#include <Ethernet.h>
+#include <EthernetClient.h>
+#include <EthernetServer.h>
+#include <EthernetUdp.h>
+
 #include <SPI.h>
 #include <WiFi101.h>
 #include <WiFiClient.h>
